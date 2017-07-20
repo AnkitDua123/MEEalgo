@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+char arr[100000];
+char arr1[100000];
+
+void encrypt(char* input, char key[],int len)
+{
+  for(int i=0;i<len;i++)
+  {
+    input[i]=input[i]^key[i];
+  }
+}
+
+void decrypt(char* input,char key[],int len)
+{
+  for(int i=0;i<len;i++)
+  {
+    input[i]=input[i]^key[i];
+  }
+}
+
+int display(char* input, int len)
+{
+    for(int i=0;i<len;i++)
+    {
+        cout<<input[i];
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    char key[]="BDUFGHKJBCRB";
+    char key2[]="HIGHUHJCIWKH";
+    char input[]="M@$Ter123456";
+    int len = sizeof(input)/sizeof(input[0]);
+    encrypt(input,key,len);
+    display(input,len);
+    encrypt(input,key2,len);
+    display(input,len);
+    decrypt(input,key,len);
+    display(input,len);
+    decrypt(input,key2,len);
+    for(int i=0;i<12;i++)
+    {
+        cout<<input[i];
+    }
+    return 0;
+}
